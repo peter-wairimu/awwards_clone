@@ -29,5 +29,5 @@ class ProfileUpdateForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ('project_name','project_photo','description','url','author')
+        fields = ['author','description','github_repo','id','project_name','project_photo','url']
 

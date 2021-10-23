@@ -15,9 +15,9 @@
             {% crispy form %}
             {% csrf_token %}
             <div class="form-group w3-center">
-              <input type="submit" class=" w3-center w3-margin w3-button w3-theme-d5" value="Post">
+              <input type="submit" class=" w3-center w3-margin w3-button w3-theme-d5" name="submit">
             </div>
-            <input type="hidden" name="next" value="{{next}}">
+           
           </form>
         </div>
       </div>

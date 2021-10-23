@@ -52,7 +52,7 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def post(request):
-    posts = Project.objects.all().filter(created_date__lte = timezone.now()).order_by('-created_date')
+    posts = Project.objects.all()
     user = request.user
 
     return render(request,'project.html',{'posts':posts,'user':user})
@@ -105,7 +105,7 @@ def project_upload(request):
             return redirect('auth')
 
     else:
-        form = ProjectForm()
+            form = ProjectForm()
     return render(request, 'project_details.html', {'form': form})
 
 
