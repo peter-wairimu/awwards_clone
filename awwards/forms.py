@@ -26,8 +26,8 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['image']
 
 
-class ProjectForm(forms.ModelForm):
+class UploadProjectForm(forms.ModelForm):
     class Meta:
-        model = Project
-        fields = ['author','description','github_repo','id','project_name','project_photo','url']
+        model=Project
+        fields=('name','description','developer','created_date','image','linktosite')
 

@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile,Project
 from .decorators import unauthenticated_user
-from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,ProjectForm
+from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,UploadProjectForm
 from django.contrib import messages
 from django .contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
@@ -50,13 +50,6 @@ def logoutUser(request):
 
 
 
-@login_required(login_url='login')
-def post(request):
-    posts = Project.objects.all()
-    user = request.user
-
-    return render(request,'project.html',{'posts':posts,'user':user})
-
 
 
 def userPage(request):
@@ -94,21 +87,29 @@ def profile(request):
 
 
 
-def project_upload(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = ProjectForm(request.POST,request.FILES)
+def home(request):
+    peters=Project.objects.all()
+
+    context={"peters":peters}
+    return render (request, 'project.html', context)
+
+
+def detail(request, id):
+    projects=Project.objects.get(id=id)
+    context={"project":projects}
+    return render(request,'project_details.html',context)
+
+
+def  add_project(request):
+    if request.method=="POST":
+        form=UploadProjectForm(request.POST or None)
         if form.is_valid():
-            image = form.save(commit=False)
-            image= current_user
-            image.save()
-            return redirect('auth')
-
+            data=form.save(commit=False)
+            data.save()
+            return redirect ("home")
     else:
-            form = ProjectForm()
-    return render(request, 'project_details.html', {'form': form})
-
-
+        form=UploadProjectForm()
+    return render(request, "add_project.html",{"form":form})    
 
 
 

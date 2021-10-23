@@ -12,13 +12,15 @@ class Profile(models.Model):
 
 
 class Project(models.Model):
-    project_name = models.CharField(max_length=50, blank=True)
-    project_photo = models.ImageField(upload_to='project_image')
-    description = models.TextField(max_length=600, blank=True)
-    github_repo = models.CharField(max_length=200, blank=True)
-    url = models.CharField(max_length=50, blank=True)
-    author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    date_added = models.DateTimeField(auto_now_add=True)
+    name=models.CharField(max_length=300)
+    description=models.TextField(max_length=5000)     
+    developer=models.CharField(max_length=300)
+    created_date=models.DateField()
+    averangeRating=models.FloatField(default=0)
+    image=models.URLField(default=None, null=True)
+    linktosite=models.URLField(default=None, null=True)
+   
+
 
     def __str__(self):
-        return self.url
+        return self.name
