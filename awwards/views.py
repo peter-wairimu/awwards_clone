@@ -55,7 +55,7 @@ def post(request):
     posts = Project.objects.all().filter(created_date__lte = timezone.now()).order_by('-created_date')
     user = request.user
 
-    return render(request,'post.html',{'posts':posts,'user':user})
+    return render(request,'login.html',{'posts':posts,'user':user})
 
 @login_required(login_url='login')
 def logincup(request):
@@ -103,9 +103,9 @@ def project_upload(request):
         form = ProjectForm(request.POST,request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
-            image_uploaded_by = current_user
+            image= current_user
             image.save()
-            return redirect('')
+            return redirect('auth')
 
         else:
             form = ProjectForm()
