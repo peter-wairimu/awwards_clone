@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import fields
-from .models import Profile
+from .models import Profile,Project
 
 
 class CreateUserForm(UserCreationForm):
@@ -24,4 +24,10 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ('project_name','project_photo','description','url','author')
 

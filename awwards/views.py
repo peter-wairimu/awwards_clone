@@ -1,12 +1,14 @@
 from django.http import request
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile,Project
 from .decorators import unauthenticated_user
-from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
+from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,ProjectForm
 from django.contrib import messages
 from django .contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+
 
 # Create your views here.
 
@@ -49,6 +51,13 @@ def logoutUser(request):
 
 
 @login_required(login_url='login')
+def post(request):
+    posts = Project.objects.all().filter(created_date__lte = timezone.now()).order_by('-created_date')
+    user = request.user
+
+    return render(request,'post.html',{'posts':posts,'user':user})
+
+@login_required(login_url='login')
 def logincup(request):
     return render(request,'project_details.html')
 
@@ -85,4 +94,32 @@ def profile(request):
     }
 
     return render(request, 'accounts/profile.html', context)
+
+
+
+def project_upload(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProjectForm(request.POST,request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image_uploaded_by = current_user
+            image.save()
+            return redirect('')
+
+        else:
+            form = ProjectForm()
+        return render(request, 'project_details.htm', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
 
