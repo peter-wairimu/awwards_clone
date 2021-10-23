@@ -8,7 +8,7 @@ from django.contrib import messages
 from django .contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -55,11 +55,8 @@ def post(request):
     posts = Project.objects.all().filter(created_date__lte = timezone.now()).order_by('-created_date')
     user = request.user
 
-    return render(request,'login.html',{'posts':posts,'user':user})
+    return render(request,'project.html',{'posts':posts,'user':user})
 
-@login_required(login_url='login')
-def logincup(request):
-    return render(request,'project_details.html')
 
 
 def userPage(request):
@@ -107,9 +104,9 @@ def project_upload(request):
             image.save()
             return redirect('auth')
 
-        else:
-            form = ProjectForm()
-        return render(request, 'project_details.htm', {'form': form})
+    else:
+        form = ProjectForm()
+    return render(request, 'project_details.html', {'form': form})
 
 
 

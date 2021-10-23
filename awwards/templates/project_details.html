@@ -12,6 +12,7 @@
         </div>
         <div class="panel-body ">
           <form  method="post" enctype="multipart/form-data">
+            {% crispy form %}
             {% csrf_token %}
             <div class="form-group w3-center">
               <input type="submit" class=" w3-center w3-margin w3-button w3-theme-d5" value="Post">
@@ -23,6 +24,6 @@
     </div>
   </div>
 </div>
-{{form.media}}
+
 
 {% endblock%}

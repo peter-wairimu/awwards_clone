@@ -1,0 +1,55 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+        
+              {% for post in posts %}
+        <div class="card">
+          
+            <div class="card-image">
+              <figure class="image is-4by3">
+                {% if post.image %}
+                <img src="{{post.project_photo.url}}" alt="Placeholder image"><br>
+                {% endif %}
+              </figure>
+            
+
+              <div class="media-content" id="div">
+              <p class="title is-4">{{ post.author }}</p>
+              <p class="subtitle is-6">{{ post.description }}</p>
+              <p class="subtitle is-6">{{ post.project_name }}</p>
+              <p class="subtitle is-6">{{ post.github_repo }}</p>
+              <p class="subtitle is-6">{{ post.project_url }}</p>
+              
+              
+              
+              
+            </div>
+            
+          </div><br><br>
+         
+          {% endfor %}
+            </div>
+            
+
+            </div>
+            
+    </div>
+    
+
+</section>
+
+
+
+  
+  
+  </body>
+</html>
+
+
+
+
+
+{% endblock%}

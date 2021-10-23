@@ -8,9 +8,9 @@ urlpatterns =[
     path('login/',views.loginPage,name='login'),
     path('logout/',views.userPage,name='user-page'),
     path('user/',views.logoutUser,name='logout'),
-    path('',views.logincup,name='auth'),
+    path('',views.post,name='auth'),
     path('profile/', views.profile, name='profile'),
-    path('post/', views.project_upload, name='post'),
+    path('post/', views.project_upload, name='post_view'),
 
 
 ]
