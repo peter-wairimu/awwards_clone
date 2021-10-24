@@ -4,13 +4,16 @@
 
 
 <div class="container">
-      <div class="row">
+    
+    <div class="row align-items-start">
+        <div class="col">
+        
       {% for peter in peters %}
       
       <div id="app" class="row columns is-multiline is-half">
           
-        <div v-for="card in cardData" key="card.id" class="column is-4">
-          <div class="card large">
+        <div v-for="card in cardData" key="card.id" class="column is-4 is-vertical">
+          <div class="card">
             <div class="card-image">
               <figure class="image is-16by9">
                 <img src="{{peter.image}}" alt="Image" class="img-fluid">
@@ -41,6 +44,8 @@
       </div>
 
       {% endfor%}
+              
+    </div>
     </div>
     </div>
   </div>

@@ -24,3 +24,8 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def search_category(cls,search):
+        searches = cls.objects.filter(name__username__icontains = search)
+        return searches
