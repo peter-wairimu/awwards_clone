@@ -36,6 +36,11 @@
 
             </div>
         </div>
+
+        {% for project in projects %}
+
+        <input type="hidden" name="project" value="{{project}}">
+        {% endfor %}
         </div>
     </div>
     </div>
