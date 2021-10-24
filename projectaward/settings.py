@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'awwards',
     'crispy_forms',
-    'rest_framework'
+    'rest_framework',
     'cloudinary_storage',
 ]
 
