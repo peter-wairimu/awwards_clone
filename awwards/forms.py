@@ -34,6 +34,7 @@ class UploadProjectForm(forms.ModelForm):
 
 class RateLimitForm(forms.ModelForm):
     text = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),required=False)
+    rate = forms.ChoiceField(choices=RATE_CHOICES,widget=forms.Select(),required=True)
 
 
 
