@@ -27,5 +27,5 @@ class Project(models.Model):
 
     @classmethod
     def search_category(cls,search):
-        searches = cls.objects.filter(name__username__icontains = search)
+        searches = cls.objects.filter(name__icontains = search)
         return searches
