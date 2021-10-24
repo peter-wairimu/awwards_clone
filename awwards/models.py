@@ -14,9 +14,8 @@ class Profile(models.Model):
 class Project(models.Model):
     name=models.CharField(max_length=300)
     description=models.TextField(max_length=5000)     
-    developer=models.CharField(max_length=300)
+    author=models.CharField(max_length=300)
     created_date=models.DateField()
-    averangeRating=models.FloatField(default=0)
     image=models.URLField(default=None, null=True)
     linktosite=models.URLField(default=None, null=True)
    

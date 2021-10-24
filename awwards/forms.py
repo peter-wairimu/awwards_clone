@@ -29,7 +29,7 @@ class ProfileUpdateForm(forms.ModelForm):
 class UploadProjectForm(forms.ModelForm):
     class Meta:
         model=Project
-        fields=('name','description','developer','created_date','image','linktosite')
+        fields=('name','description','author','created_date','image','linktosite')
 
 
 class RateLimitForm(forms.ModelForm):
