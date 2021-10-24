@@ -29,3 +29,14 @@ class Project(models.Model):
     def search_category(cls,search):
         searches = cls.objects.filter(name__icontains = search)
         return searches
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    project = models.ForeignKey(Project, models.CASCADE)
+    comment = models.TextField(max_length=500)
+    rate = models.IntegerField(default=0)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
