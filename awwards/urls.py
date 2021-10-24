@@ -12,6 +12,7 @@ urlpatterns =[
     path('',views.home, name="home"),
     path('project_details/<int:id>/', views.detail, name="project_details"),
     path('add_project/',views.add_project , name="add_project"),
+    path('search_results/',views.search_results, name='search_results'),
    
 
 ]
