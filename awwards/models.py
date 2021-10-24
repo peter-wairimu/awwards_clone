@@ -31,3 +31,32 @@ class Project(models.Model):
         return searches
 
 
+RATE_CHOICES = [
+
+    (1, '1 - very poor'),
+    (2, '2 - poor'),
+    (3, '3 - Terrible'),
+    (4, '4 -good'),
+    (5, '5 -very good'),
+    (6, '6 -perfect'),
+    (7, '7 -Exellent'),
+    (8, '8-world class'),
+
+
+
+]
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    project = models.ForeignKey(Project, models.CASCADE)
+    text = models.CharField(max_length=200,blank=True)
+    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES)
+    created = models.DateTimeField(auto_now_add=True)
+    likes = models.PositiveIntegerField(default=0)
+    
+
+
+
+    def __str__(self):
+        return self.user.username

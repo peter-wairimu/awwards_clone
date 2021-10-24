@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import fields
-from .models import Profile,Project
+from .models import Profile,Project, Review,RATE_CHOICES
 
 
 class CreateUserForm(UserCreationForm):
@@ -31,6 +31,14 @@ class UploadProjectForm(forms.ModelForm):
         model=Project
         fields=('name','description','developer','created_date','image','linktosite')
 
+
+class RateLimitForm(forms.ModelForm):
+    text = forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}),required=False)
+    rate = forms.ChoiceField(choices=RATE_CHOICES,widget=forms.Select(),required=True)
+
+    class Meta:
+        model = Review
+        fields =('text', 'rate')
 
 
 

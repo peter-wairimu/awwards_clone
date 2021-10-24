@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile,Project
 from .decorators import unauthenticated_user
-from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,UploadProjectForm
+from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,UploadProjectForm,RateLimitForm
 from django.contrib import messages
 from django .contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
@@ -122,6 +122,37 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
+
+
+
+
+
+def rate(request,id):
+
+    project = Project.objects.get(id=id)
+    user = request.user
+
+    if request.method == 'POST':
+        form = RateLimitForm(request.POST)
+        if form.is_valid():
+            rate = form.save(commit=False)
+            rate.user = user
+            rate.project = project
+            rate.save()
+            return redirect('home')
+
+    else:
+        form = RateLimitForm()
+
+        context ={
+            'form': form,
+            'project': project,
+        }
+
+    return render(request,'rate.html',context)
+        
+
+            
 
 
 
