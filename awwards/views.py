@@ -1,7 +1,7 @@
 from django.http import request
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile,Project
+from .models import Profile,Project,Review
 from .decorators import unauthenticated_user
 from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm,UploadProjectForm,RateLimitForm
 from django.contrib import messages

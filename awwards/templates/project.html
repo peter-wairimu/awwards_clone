@@ -18,69 +18,83 @@ background-size:cover;
 .card{
   display: flex;
   display: inline-block;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
+  padding: 0 2rem;
+  font-size: 1.3rem;
 }
-
-
 
 
 
 </style>
 
-<div class="container">
+
+
+
+  <div class="container">
+
+
+
+  <div class="card-body">
+
+<div class="row ">
+
+{% for peter in peters %}
+
+<div class="col md-4">
+
+  
     
-    <div class="row align-items-start">
-        <div class="col">
-        
-      {% for peter in peters %}
-      
-      <div id="app" class="row columns is-multiline is-half">
-          
-        <div v-for="card in cardData" key="card.id" class="column is-4 is-vertical">
-<div class="row">
-  <div class="col">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-16by9">
-                <img src="{{peter.image}}" alt="Image" class="img-fluid">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="{{peter.image}}" alt="img-fluid" width="75%">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4 no-padding">{{peter.author}}</p>
-                  <p>
-                    <span class="title is-6">
-                        <span style="color: black;">Read more</span><a href="{% url 'project_details' peter.id %}">  {{peter.name}} </a> </span> </p>
 
-                </div>
-              </div>
-              <div class="content">
-                {{peter.description}}
-                <div class="background-icon"><span class="icon-twitter"></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="card">
+      <img src="{{peter.image}}" alt="Image" class="img-fluid">
 
-          
-</div>
-        </div>
+      <div class="media-content">
+        <p class="title is-4 no-padding" style="text-transform: capitalize;
+        font-size: 1.5rem;
+        font-style: italic;
+        font-family: 'Zen Old Mincho', serif;
+        color: #295197;">{{peter.author}}</p>
+        <p>
+          <span class="title is-6">
+              <span style="text-transform: capitalize;
+              font-size: 1.5rem;
+              font-style: italic;
+              font-family: 'Zen Old Mincho', serif;
+              color: #295197;">Read more</span><a href="{% url 'project_details' peter.id %}">  {{peter.name}} </a> </span> </p>
+
       </div>
+      <div class="content" style="text-transform: capitalize;
+      font-size: 1rem;
+      font-style: italic;
+      font-family: 'Zen Old Mincho', serif;
+      color: #295197;">
+        {{peter.description}}
+        <div class="background-icon"><span class="icon-twitter"></span></div>
+      </div>
+</div>
 
-      {% endfor%}
-              
-    </div>
-    </div>
-    </div>
+  
+    
+
+
+
+
+
+  
+
+</div>
+
+
+
+{% endfor%}
+
+</div>
+
+
+  </div>
+
+
+
+
   </div>
 
 
