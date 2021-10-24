@@ -56,7 +56,7 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 ALLOWED_HOSTS = []
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -108,15 +108,6 @@ WSGI_APPLICATION = 'projectaward.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'anita',
-        'USER': 'moringa',
-    'PASSWORD':'wairimu22',
-    }
-}
 
 
 
