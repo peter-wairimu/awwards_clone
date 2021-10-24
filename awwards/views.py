@@ -35,7 +35,7 @@ def loginPage(request):
         user = authenticate(request,username = username,password= password)
         if user is not None:
             login(request,user)
-            return redirect('auth')
+            return redirect('home')
             
         else:
             messages.info(request,'Username or password is inorrect')
@@ -86,20 +86,20 @@ def profile(request):
     return render(request, 'accounts/profile.html', context)
 
 
-
+@login_required(login_url='login')
 def home(request):
     peters=Project.objects.all()
 
     context={"peters":peters}
     return render (request, 'project.html', context)
 
-
+@login_required(login_url='login')
 def detail(request, id):
     projects=Project.objects.get(id=id)
     context={"project":projects}
     return render(request,'project_details.html',context)
 
-
+@login_required(login_url='login')
 def  add_project(request):
     if request.method=="POST":
         form=UploadProjectForm(request.POST or None)
