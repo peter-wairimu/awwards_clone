@@ -112,6 +112,16 @@ def  add_project(request):
     return render(request, "add_project.html",{"form":form})    
 
 
+def search_results(request):
+    if 'name' in request.GET and request.GET["name"]:
+        search_term = request.GET.get("name")
+        searched_articles = Project.search_category(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message,"categories": searched_articles})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+
 
 
 
