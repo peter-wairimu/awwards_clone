@@ -32,7 +32,7 @@
             <p class="card-text"> <span  style="font-weight: 800;font-size: 20px;">Developer: </span>{{project.developer}}, 
             <span><a href="{{project.linktosite}}">Access the site</a></span></p>
             <p class="card-text"><small class="text"><span  style="font-weight: 800;font-size: 20px;">Created on :</span>{{project.created_date}}</small></p>
-            <p class="card-text"><small class="text"><span  style="font-weight: 800;font-size: 20px;">Averange Rating Project:</span> {{project.averangeRating}}</small></p>
+            <a href="{% url 'rate' project.id %}">Rate</a>
 
             </div>
         </div>
