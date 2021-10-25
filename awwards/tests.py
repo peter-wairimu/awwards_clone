@@ -14,7 +14,7 @@ class ProjectTestClass(TestCase):
 
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.james,Post))
+        self.assertTrue(isinstance(self.james,Project))
 
     def test_save_method(self):
         self.james.save_post()
