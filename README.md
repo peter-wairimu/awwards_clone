@@ -45,7 +45,7 @@ Awwards web app is a web app where a user can view projects posted by other user
 <img src="awwards/static/images/read3.png">
 <img src="awwards/static/images/read2.png">
 <img src="awwards/static/images/read1.png">
-<img src="awwards/static/images/read4.png">
+
 
 
 
