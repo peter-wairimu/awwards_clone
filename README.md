@@ -1,6 +1,6 @@
-# Instagram clone
+# Awwards clone
 
-## Date, 17/10/2021
+## Date, 24/10/2021
 
 
 ## By Peter Chege Wairimu.
@@ -8,7 +8,7 @@
 
 # Description 
 
-Instagram clone is an app where a user can add images comment on othere peoples images and coments and live a like
+Awwards web app is a web app where a user can view projects posted by other users post a project and also rate a project and write a review
 
 # Instructions
 
@@ -19,7 +19,7 @@ Instagram clone is an app where a user can add images comment on othere peoples 
 
 
 
-(iii). live a like and a comment
+(iii). Add a project rate other projects and also write a review
 
 
 
@@ -42,10 +42,10 @@ Instagram clone is an app where a user can add images comment on othere peoples 
 
 
 ## 
-<img src="insta/static/images/">
-<img src="insta/static/images/">
-<img src="insta/static/images/">
-<img src="insta/static/images/">
+<img src="awwards/static/images/read3.png">
+<img src="awwards/static/images/read2.png">
+<img src="awwards/static/images/read1.png">
+<img src="awwards/static/images/read4.png">
 
 
 
